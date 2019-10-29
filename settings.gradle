@@ -1,0 +1,1 @@
+include ':app', ':component_base', ':library_one', ':library_two'
