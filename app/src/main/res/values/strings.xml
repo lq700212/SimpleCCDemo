@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">SimpleCCDemo</string>
+    <string name="library_one_button_text">打开library_one的界面</string>
 </resources>

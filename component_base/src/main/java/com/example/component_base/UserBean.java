@@ -3,12 +3,12 @@ package com.example.component_base;
 public class UserBean {
     private String name;
     private int age;
-    private float height;
+    private float weight;
 
-    public UserBean(String name, int age, float height) {
+    public UserBean(String name, int age, float weight) {
         this.name = name;
         this.age = age;
-        this.height = height;
+        this.weight = weight;
     }
 
     public String getName() {
@@ -27,11 +27,11 @@ public class UserBean {
         this.age = age;
     }
 
-    public float getHeight() {
-        return height;
+    public float getWeight() {
+        return weight;
     }
 
-    public void setHeight(float height) {
-        this.height = height;
+    public void setWeight(float weight) {
+        this.weight = weight;
     }
 }

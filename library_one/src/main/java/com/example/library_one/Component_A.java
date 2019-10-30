@@ -2,6 +2,7 @@ package com.example.library_one;
 
 import com.billy.cc.core.component.CC;
 import com.billy.cc.core.component.CCResult;
+import com.billy.cc.core.component.CCUtil;
 import com.billy.cc.core.component.IComponent;
 import com.example.component_base.ComponentConst;
 
@@ -20,11 +21,19 @@ public class Component_A implements IComponent {
         switch (action) {
             case ComponentConst.Component_A.Action.SHOW:
                 ComponentAManager componentAManager = ComponentAManager.getInstance();
-                cc.sendCCResult(cc.getCallId(), CCResult.successWithNoKey(componentAManager));
+                CC.sendCCResult(cc.getCallId(), CCResult.successWithNoKey(componentAManager));
                 break;
             case ComponentConst.Component_A.Action.HIDE:
                 break;
+            case "showActivityLibraryOne":
+                openActivity(cc);
+                break;
         }
         return true;
+    }
+
+    private void openActivity(CC cc) {
+        CCUtil.navigateTo(cc, ActivityA.class);
+        CC.sendCCResult(cc.getCallId(), CCResult.success());
     }
 }

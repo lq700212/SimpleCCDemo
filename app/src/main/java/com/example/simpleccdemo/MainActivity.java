@@ -3,6 +3,8 @@ package com.example.simpleccdemo;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.billy.cc.core.component.CC;
@@ -12,14 +14,16 @@ import com.example.component_base.UserBean;
 import com.example.component_base.interface_custom.IComponentAManager;
 
 public class MainActivity extends AppCompatActivity {
-    private TextView tv;
+    private TextView textView;
+    private Button bt_library_one;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        tv = findViewById(R.id.tv);
+        textView = (TextView) findViewById(R.id.textView);
+        bt_library_one = (Button) findViewById(R.id.bt_library_one);
 
         CCResult ccResult = CC.obtainBuilder(ComponentConst.Component_A.NAME)
                 .setActionName(ComponentConst.Component_A.Action.SHOW)
@@ -30,10 +34,20 @@ public class MainActivity extends AppCompatActivity {
             IComponentAManager componentAManager = ccResult.getDataItemWithNoKey();
             UserBean userBean = componentAManager.show();
             if (userBean != null) {
-                tv.setText("name:" + userBean.getName() + "\n"
+                textView.setText("name:" + userBean.getName() + "\n"
                         + "age:" + userBean.getAge() + "\n"
-                        + "height:" + userBean.getHeight());
+                        + "weight:" + userBean.getWeight());
             }
         }
+
+        bt_library_one.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                CC cc = CC.obtainBuilder(ComponentConst.Component_A.NAME)
+                        .setActionName("showActivityLibraryOne")
+                        .build();
+                CCResult result = cc.call();
+            }
+        });
     }
 }
