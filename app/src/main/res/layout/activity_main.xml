@@ -7,19 +7,58 @@
     tools:context=".MainActivity">
 
     <TextView
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/colorPrimary"
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="主App"
+        android:textSize="17sp"
+        android:visibility="visible" />
+
+    <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
         android:text="@string/app_name"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/title" />
 
     <Button
-        android:id="@+id/bt_library_one"
+        android:id="@+id/bt_component_a"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/library_one_button_text"
+        android:text="@string/component_a_button_text"
+        android:textAllCaps="false"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <Button
+        android:id="@+id/bt_component_b"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/component_b_button_text"
+        android:textAllCaps="false"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bt_component_a" />
+
+    <Button
+        android:id="@+id/bt_component_a_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="获取component A的数据"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bt_component_b" />
+
+    <Button
+        android:id="@+id/bt_component_b_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="获取component B的数据"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bt_component_a_content" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

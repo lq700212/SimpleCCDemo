@@ -1,1 +1,1 @@
-include ':app', ':component_base', ':library_one', ':library_two'
+include ':app', ':component_base', ':component_a', ':component_b', ':component_c'
