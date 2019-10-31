@@ -40,7 +40,7 @@ public class ActivityA extends AppCompatActivity {
 
     private void initData() {
         ComponentAManager componentAManager = ComponentAManager.getInstance();
-        UserBean userBean = componentAManager.show();
+        UserBean userBean = componentAManager.get();
         textView.setText("ComponentA:\nname:" + userBean.getName() + "\n"
                 + "age:" + userBean.getAge() + "\n"
                 + "weight:" + userBean.getWeight());
@@ -70,14 +70,14 @@ public class ActivityA extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 CCResult ccResult = CC.obtainBuilder(ComponentConst.Component_B.NAME)
-                        .setActionName(ComponentConst.Component_B.Action.SHOW)
+                        .setActionName(ComponentConst.Component_B.Action.GET)
                         .build()
                         .call();
 
                 //是否获取成功
                 if (ccResult.isSuccess()) {
                     IComponentBManager componentBManager = ccResult.getDataItemWithNoKey();
-                    UserBean userBean = componentBManager.show();
+                    UserBean userBean = componentBManager.get();
                     if (userBean != null) {
                         Toast.makeText(ActivityA.this, "name:" + userBean.getName() + "\n" +
                                 "age:" + userBean.getAge() + "\n" +

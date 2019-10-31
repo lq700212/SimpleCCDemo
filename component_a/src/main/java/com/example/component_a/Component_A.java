@@ -18,10 +18,10 @@ public class Component_A implements IComponent {
     @Override
     public boolean onCall(CC cc) {
         //此处的action是外部调用该组件内部的方法的标记，用于区分该组件内不同的功能或者方法，
-        //由于libraryone依赖了base组件，所以可以直接引用base组件里的常量
+        //由于component_a依赖了base组件，所以可以直接引用base组件里的常量
         String action = cc.getActionName();
         switch (action) {
-            case ComponentConst.Component_A.Action.SHOW:
+            case ComponentConst.Component_A.Action.GET:
                 ComponentAManager componentAManager = ComponentAManager.getInstance();
                 CC.sendCCResult(cc.getCallId(), CCResult.successWithNoKey(componentAManager));
                 break;

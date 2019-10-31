@@ -29,6 +29,8 @@ dependencies {
     implementation project(':component_base')
     addComponent 'component_a'
     addComponent 'component_b'
+    addComponent 'component_login'
+    addComponent 'component_order'
 
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'

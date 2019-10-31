@@ -21,6 +21,8 @@ public class MainActivity extends AppCompatActivity {
     private Button bt_component_b;
     private Button bt_component_a_content;
     private Button bt_component_b_content;
+    private Button bt_login;
+    private Button bt_order;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +38,8 @@ public class MainActivity extends AppCompatActivity {
         bt_component_b = (Button) findViewById(R.id.bt_component_b);
         bt_component_a_content = (Button) findViewById(R.id.bt_component_a_content);
         bt_component_b_content = (Button) findViewById(R.id.bt_component_b_content);
+        bt_login = (Button) findViewById(R.id.bt_login);
+        bt_order = (Button) findViewById(R.id.bt_order);
     }
 
     private void initData() {
@@ -43,14 +47,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 CCResult ccResult = CC.obtainBuilder(ComponentConst.Component_A.NAME)
-                        .setActionName(ComponentConst.Component_A.Action.SHOW)
+                        .setActionName(ComponentConst.Component_A.Action.GET)
                         .build()
                         .call();
 
                 //是否获取成功
                 if (ccResult.isSuccess()) {
                     IComponentAManager componentAManager = ccResult.getDataItemWithNoKey();
-                    UserBean userBean = componentAManager.show();
+                    UserBean userBean = componentAManager.get();
                     if (userBean != null) {
                         textView.setText("name:" + userBean.getName() + "\n"
                                 + "age:" + userBean.getAge() + "\n"
@@ -67,14 +71,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 CCResult ccResult = CC.obtainBuilder(ComponentConst.Component_B.NAME)
-                        .setActionName(ComponentConst.Component_B.Action.SHOW)
+                        .setActionName(ComponentConst.Component_B.Action.GET)
                         .build()
                         .call();
 
                 //是否获取成功
                 if (ccResult.isSuccess()) {
                     IComponentBManager componentBManager = ccResult.getDataItemWithNoKey();
-                    UserBean userBean = componentBManager.show();
+                    UserBean userBean = componentBManager.get();
                     if (userBean != null) {
                         textView.setText("name:" + userBean.getName() + "\n"
                                 + "age:" + userBean.getAge() + "\n"
@@ -106,6 +110,34 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 CC cc = CC.obtainBuilder(ComponentConst.Component_B.NAME)
                         .setActionName("showComponentB")
+                        .build();
+                CCResult result = cc.call();
+                if (!result.isSuccess()) {
+                    Toast.makeText(MainActivity.this, "跳转失败,code = " + result.getCode() +
+                            ", description = " + result.getErrorMessage(), Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+        bt_login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                CC cc = CC.obtainBuilder(ComponentConst.Component_login.NAME)
+                        .setActionName(ComponentConst.Component_login.Action.OPENLOGINACTIVITY)
+                        .build();
+                CCResult result = cc.call();
+                if (!result.isSuccess()) {
+                    Toast.makeText(MainActivity.this, "跳转失败,code = " + result.getCode() +
+                            ", description = " + result.getErrorMessage(), Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+        bt_order.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                CC cc = CC.obtainBuilder(ComponentConst.Component_order.NAME)
+                        .setActionName(ComponentConst.Component_order.Action.OPENORDERACTIVITY)
                         .build();
                 CCResult result = cc.call();
                 if (!result.isSuccess()) {

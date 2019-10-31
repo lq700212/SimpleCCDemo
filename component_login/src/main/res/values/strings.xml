@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Component_login</string>
+    <string name="component_login_title_activity_login">登录界面</string>
+    <string name="component_login_prompt_email">请输入账号</string>
+    <string name="component_login_prompt_password">请输入密码</string>
+    <string name="component_login_action_sign_in">登录/注册</string>
+</resources>

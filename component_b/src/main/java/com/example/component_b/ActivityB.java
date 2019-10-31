@@ -22,7 +22,7 @@ public class ActivityB extends AppCompatActivity {
         textview = (TextView) findViewById(R.id.textview);
 
         ComponentBManager componentBManager = ComponentBManager.getInstance();
-        UserBean userBean = componentBManager.show();
+        UserBean userBean = componentBManager.get();
         textview.setText("ComponentB:\nname:" + userBean.getName() + "\n"
                 + "age:" + userBean.getAge() + "\n"
                 + "weight:" + userBean.getWeight());

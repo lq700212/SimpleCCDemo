@@ -16,10 +16,10 @@ public class Component_B implements IComponent {
     @Override
     public boolean onCall(CC cc) {
         //此处的action是外部调用该组件内部的方法的标记，用于区分该组件内不同的功能或者方法，
-        //由于component b依赖了base组件，所以可以直接引用base组件里的常量
+        //由于component_b依赖了base组件，所以可以直接引用base组件里的常量
         String action = cc.getActionName();
         switch (action) {
-            case ComponentConst.Component_B.Action.SHOW:
+            case ComponentConst.Component_B.Action.GET:
                 ComponentBManager componentBManager = ComponentBManager.getInstance();
                 CC.sendCCResult(cc.getCallId(), CCResult.successWithNoKey(componentBManager));
                 break;

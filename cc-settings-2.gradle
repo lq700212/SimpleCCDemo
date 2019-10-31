@@ -1,1 +1,3 @@
 project.apply plugin: 'cc-register'
+
+ccregister.multiProcessEnabled = true

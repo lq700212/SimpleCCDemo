@@ -30,11 +30,11 @@ public class ComponentBManager implements IComponentBManager {
     }
 
     @Override
-    public UserBean show() {
+    public UserBean get() {
 //        测试代码，在非component_a中无法获取到ComponentAManager实例
 //        证实了CC的一个好处，可以很好的隔离个组件的功能界限
 //        ComponentAManager componentAManager = ComponentAManager.getInstance();
-        Log.d(TAG, "show: ");
+        Log.d(TAG, "get: ");
         return getUserBeanFromComponentB();
     }
 

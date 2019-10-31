@@ -30,8 +30,8 @@ public class ComponentAManager implements IComponentAManager {
     }
 
     @Override
-    public UserBean show() {
-        Log.d(TAG, "show: ");
+    public UserBean get() {
+        Log.d(TAG, "get: ");
         return getUserBeanFromComponentA();
     }
 
