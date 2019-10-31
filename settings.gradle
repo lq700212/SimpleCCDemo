@@ -1,1 +1,1 @@
-include ':app', ':component_base', ':component_a', ':component_b', ':component_c', ':component_login',':component_order'
+include ':app', ':component_base', ':component_a', ':component_b', ':component_c', ':component_login',':component_order', ':component_msg', ':component_view'

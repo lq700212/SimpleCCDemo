@@ -9,6 +9,7 @@ import com.billy.cc.core.component.CC;
 import com.billy.cc.core.component.CCResult;
 import com.billy.cc.core.component.IComponent;
 import com.example.component_base.ComponentConst;
+import com.example.component_base.Global;
 
 public class UserComponent implements IComponent {
     @Override
@@ -25,7 +26,7 @@ public class UserComponent implements IComponent {
             case ComponentConst.Component_login.Action.FORCEGETLOGINUSER:
                 if (!TextUtils.isEmpty(Global.loginUserName)) {
                     //已登录同步实现，直接调用CC.sendCCResult(...)并返回返回false
-                    CCResult result = CCResult.success(Global.KEY_USERNAME, Global.loginUserName);
+                    CCResult result = CCResult.success(Global.KEY_USERNAME, Global.loginUserName).addData("debug","213413");
                     CC.sendCCResult(cc.getCallId(), result);
                     return false;
                 }

@@ -10,7 +10,9 @@ import android.widget.Toast;
 
 import com.billy.cc.core.component.CC;
 import com.billy.cc.core.component.CCResult;
+import com.billy.cc.core.component.IComponentCallback;
 import com.example.component_base.ComponentConst;
+import com.example.component_base.Global;
 import com.example.component_base.UserBean;
 import com.example.component_base.interface_custom.IComponentAManager;
 import com.example.component_base.interface_custom.IComponentBManager;
@@ -23,6 +25,19 @@ public class MainActivity extends AppCompatActivity {
     private Button bt_component_b_content;
     private Button bt_login;
     private Button bt_order;
+
+    IComponentCallback printResultCallback = new IComponentCallback() {
+        @Override
+        public void onResult(CC cc, CCResult result) {
+            if (!result.isSuccess()) {
+                Toast.makeText(MainActivity.this, "跳转失败,code = " + result.getCode() +
+                        ", description = " + result.getErrorMessage(), Toast.LENGTH_SHORT).show();
+            } else {
+                String username = result.getDataItem(Global.KEY_USERNAME);
+                Toast.makeText(MainActivity.this, "username: " + username, Toast.LENGTH_SHORT).show();
+            }
+        }
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -122,28 +137,39 @@ public class MainActivity extends AppCompatActivity {
         bt_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                CC cc = CC.obtainBuilder(ComponentConst.Component_login.NAME)
+//                CC cc = CC.obtainBuilder(ComponentConst.Component_login.NAME)
+//                        .setActionName(ComponentConst.Component_login.Action.OPENLOGINACTIVITY)
+//                        .build();
+//                CCResult result = cc.call();
+//                String username = result.getDataItem(Global.KEY_USERNAME);
+//                if (!result.isSuccess()) {
+//                    Toast.makeText(MainActivity.this, "跳转失败,code = " + result.getCode() +
+//                            ", description = " + result.getErrorMessage(), Toast.LENGTH_SHORT).show();
+//                }
+                //此处必须用异步，否则会报错-9，超时,因为LoginActivity因为特定的需求没有，立刻调用sendCCResult，
+                //会导致CC框架内部阻塞等待CCResult，最终超时
+                CC.obtainBuilder(ComponentConst.Component_login.NAME)
                         .setActionName(ComponentConst.Component_login.Action.OPENLOGINACTIVITY)
-                        .build();
-                CCResult result = cc.call();
-                if (!result.isSuccess()) {
-                    Toast.makeText(MainActivity.this, "跳转失败,code = " + result.getCode() +
-                            ", description = " + result.getErrorMessage(), Toast.LENGTH_SHORT).show();
-                }
+                        .build().callAsyncCallbackOnMainThread(printResultCallback);
             }
         });
 
         bt_order.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                CC cc = CC.obtainBuilder(ComponentConst.Component_order.NAME)
+//                CC cc = CC.obtainBuilder(ComponentConst.Component_order.NAME)
+//                        .setActionName(ComponentConst.Component_order.Action.OPENORDERACTIVITY)
+//                        .build();
+//                CCResult result = cc.call();
+//                if (!result.isSuccess()) {
+//                    Toast.makeText(MainActivity.this, "跳转失败,code = " + result.getCode() +
+//                            ", description = " + result.getErrorMessage(), Toast.LENGTH_SHORT).show();
+//                }
+                //此处必须用异步，否则会报错-9，超时,因为会走到LoginActivity的逻辑，LoginActivity因为特定的需求没有，立刻调用sendCCResult，
+                //会导致CC框架内部阻塞等待CCResult，最终超时
+                CC.obtainBuilder(ComponentConst.Component_order.NAME)
                         .setActionName(ComponentConst.Component_order.Action.OPENORDERACTIVITY)
-                        .build();
-                CCResult result = cc.call();
-                if (!result.isSuccess()) {
-                    Toast.makeText(MainActivity.this, "跳转失败,code = " + result.getCode() +
-                            ", description = " + result.getErrorMessage(), Toast.LENGTH_SHORT).show();
-                }
+                        .build().callAsyncCallbackOnMainThread(printResultCallback);
             }
         });
     }

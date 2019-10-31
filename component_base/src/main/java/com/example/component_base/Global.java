@@ -1,4 +1,4 @@
-package com.example.component_login;
+package com.example.component_base;
 
 public class Global {
     public static String KEY_USERNAME = "key_username";

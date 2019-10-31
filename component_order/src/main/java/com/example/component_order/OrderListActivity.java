@@ -1,13 +1,10 @@
 package com.example.component_order;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.os.Bundle;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 public class OrderListActivity extends AppCompatActivity {
-    private RecyclerView rv_order_list;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

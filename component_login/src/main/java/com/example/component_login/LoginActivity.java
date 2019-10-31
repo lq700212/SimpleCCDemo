@@ -11,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.billy.cc.core.component.CC;
 import com.billy.cc.core.component.CCResult;
+import com.example.component_base.Global;
 
 public class LoginActivity extends AppCompatActivity {
     private EditText et_username;
