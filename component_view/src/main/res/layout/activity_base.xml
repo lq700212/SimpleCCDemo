@@ -6,4 +6,25 @@
     android:layout_height="match_parent"
     tools:context=".BaseActivity">
 
+    <Button
+        android:id="@+id/bt_change_fragment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="切换Fragment"
+        android:textAllCaps="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <fragment
+        android:id="@+id/fragment"
+        android:name="com.example.component_view.AFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bt_change_fragment" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

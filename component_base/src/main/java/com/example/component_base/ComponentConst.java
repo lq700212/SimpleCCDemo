@@ -45,4 +45,16 @@ public class ComponentConst {
             String OPENORDERACTIVITY = "Component_Order_OpenOrderActivity";
         }
     }
+
+    public interface Component_view {
+        String NAME = "Component_view";
+
+        interface Action {
+            String OPENVIEWACTIVITY = "Component_View_OpenViewActivity";
+            String OPENVIEWACTIVITYANDWAITFRAGMENTCREATE = "Component_View_OpenViewActivity_And_WaitFragmentCreate";
+            String CHANGEFRAGMENTTEXT = "Component_View_ChangeFragmentText";
+            String CHANGEFRAGMENTCOLOR = "Component_View_ChangeFragmentColor";
+            String GETFRAGMENT = "Component_View_GetFragment";
+        }
+    }
 }

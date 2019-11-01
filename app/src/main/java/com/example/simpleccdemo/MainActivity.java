@@ -1,7 +1,9 @@
 package com.example.simpleccdemo;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -39,6 +41,49 @@ public class MainActivity extends AppCompatActivity {
         }
     };
 
+    IComponentCallback fragmentTextUpdateCallback = new IComponentCallback() {
+        @Override
+        public void onResult(CC cc, CCResult result) {
+            CCResult ccResult = null;
+            Fragment fragment = result.getDataItem("Fragment");
+            if (fragment != null) {
+                ccResult = CC.obtainBuilder(ComponentConst.Component_view.NAME)
+                        .setActionName(ComponentConst.Component_view.Action.CHANGEFRAGMENTTEXT) //action名称
+                        .addParam("Fragment", result.getDataItem("Fragment")) //目标fragment对象
+                        .addParam("newString", "恭喜你，修改成功") //设置参数
+                        .build().call();
+                if (!ccResult.isSuccess()) {
+                    Toast.makeText(MainActivity.this, "跳转失败,code = " + ccResult.getCode() +
+                            ", description = " + ccResult.getErrorMessage(), Toast.LENGTH_SHORT).show();
+                }
+            }
+        }
+    };
+
+    IComponentCallback fragmentColorUpdateCallback = new IComponentCallback() {
+        @Override
+        public void onResult(CC cc, CCResult result) {
+            if (!result.isSuccess()) {
+                Toast.makeText(MainActivity.this, "跳转失败,code = " + result.getCode() +
+                        ", description = " + result.getErrorMessage(), Toast.LENGTH_SHORT).show();
+            } else {
+                CCResult ccResult = null;
+                ccResult = CC.obtainBuilder(ComponentConst.Component_view.NAME)
+                        .setActionName(ComponentConst.Component_view.Action.CHANGEFRAGMENTCOLOR)
+                        .addParam("Activity", result.getDataItem("Activity"))
+                        .build()
+                        .call();
+                if (!ccResult.isSuccess()) {
+                    Toast.makeText(MainActivity.this, "替换失败,code = " + ccResult.getCode() +
+                            ", description = " + ccResult.getErrorMessage(), Toast.LENGTH_SHORT).show();
+                }
+            }
+        }
+    };
+
+    private Button bt_change_fragment;
+    private Button bt_change_fragment_color;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,6 +100,8 @@ public class MainActivity extends AppCompatActivity {
         bt_component_b_content = (Button) findViewById(R.id.bt_component_b_content);
         bt_login = (Button) findViewById(R.id.bt_login);
         bt_order = (Button) findViewById(R.id.bt_order);
+        bt_change_fragment = (Button) findViewById(R.id.bt_change_fragment);
+        bt_change_fragment_color = (Button) findViewById(R.id.bt_change_fragment_color);
     }
 
     private void initData() {
@@ -170,6 +217,26 @@ public class MainActivity extends AppCompatActivity {
                 CC.obtainBuilder(ComponentConst.Component_order.NAME)
                         .setActionName(ComponentConst.Component_order.Action.OPENORDERACTIVITY)
                         .build().callAsyncCallbackOnMainThread(printResultCallback);
+            }
+        });
+
+        bt_change_fragment.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                CC.obtainBuilder(ComponentConst.Component_view.NAME)
+                        .setActionName(ComponentConst.Component_view.Action.OPENVIEWACTIVITYANDWAITFRAGMENTCREATE)
+                        .build()
+                        .callAsyncCallbackOnMainThread(fragmentTextUpdateCallback);
+            }
+        });
+
+        bt_change_fragment_color.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                CC.obtainBuilder(ComponentConst.Component_view.NAME)
+                        .setActionName(ComponentConst.Component_view.Action.OPENVIEWACTIVITY)
+                        .build()
+                        .callAsyncCallbackOnMainThread(fragmentColorUpdateCallback);
             }
         });
     }

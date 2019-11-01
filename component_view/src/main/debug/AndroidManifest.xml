@@ -2,7 +2,13 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.component_view">
 
-    <application>
+    <application
+        android:name="debug.MyApplication"
+        android:allowBackup="false"
+        android:icon="@mipmap/component_view_ic_launcher"
+        android:label="@string/component_view_app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
         <activity android:name=".BaseActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

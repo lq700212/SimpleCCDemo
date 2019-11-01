@@ -77,4 +77,21 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/bt_login" />
 
+    <Button
+        android:id="@+id/bt_change_fragment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="更改Fragment显示信息"
+        android:textAllCaps="false"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bt_order" />
+
+    <Button
+        android:id="@+id/bt_change_fragment_color"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="更改Fragment颜色"
+        android:textAllCaps="false"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bt_change_fragment" />
 </androidx.constraintlayout.widget.ConstraintLayout>
