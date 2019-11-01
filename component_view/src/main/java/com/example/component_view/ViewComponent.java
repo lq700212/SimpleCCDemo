@@ -5,17 +5,10 @@ import android.content.Context;
 import android.content.Intent;
 import android.view.View;
 
-import androidx.annotation.NonNull;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-
 import com.billy.cc.core.component.CC;
 import com.billy.cc.core.component.CCResult;
 import com.billy.cc.core.component.IComponent;
 import com.example.component_base.ComponentConst;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class ViewComponent implements IComponent {
     @Override
