@@ -18,7 +18,7 @@ import com.example.component_base.UserBean;
 import com.example.component_base.interface_custom.IComponentAManager;
 import com.example.component_base.interface_custom.IComponentBManager;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BaseActivity {
     private TextView textView;
     private Button bt_component_a;
     private Button bt_component_b;
@@ -89,6 +89,24 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         initUI();
         initData();
+        //开启登录状态监听
+        startListenLoginState();
+        //...
+    }
+
+    @Override
+    public void refreshLoginUser(String userId) {
+        //开启登录监听时和登录状态改变时会调用此方法
+        //demo: 在主线程Toast当前userId
+        boolean isLogin = userId != null;
+        Toast.makeText(this, "userId=" + userId
+                + ", isLogin=" + isLogin, Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public boolean isRefreshLoginUserRunOnMainThread() {
+        //指定refreshLoginUser方法在主线程运行
+        return true;
     }
 
     private void initUI() {

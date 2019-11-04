@@ -47,6 +47,9 @@ public class LoginActivity extends AppCompatActivity {
                 } else {
                     //登录成功，返回
                     Global.loginUserName = username;
+                    //登录状态改变时，调用以下代码来更新登录用户信息
+                    //同时， 将最新的用户信息发送给监听者
+                    LoginUserManager.refreshLoginUserId(username);
                     Toast.makeText(LoginActivity.this, "登录成功", Toast.LENGTH_SHORT).show();
                     finish();
                 }

@@ -31,10 +31,15 @@ public class ComponentConst {
 
     public interface Component_login {
         String NAME = "Component_Login";
+        String KEY_USER_ID = "key_user_id";
+        String KEY_OBSERVER_COMPONENT_NAME = "key_observer_component_name";
+        String KEY_OBSERVER_ACTION_NAME = "key_observer_action_name";
 
         interface Action {
             String FORCEGETLOGINUSER = "Component_Login_ForceGetLoginUser";
             String OPENLOGINACTIVITY = "Component_Login_OpenLoginActivity";
+            String ACTION_ADD_LOGIN_OBSERVER = "action_add_login_observer";
+            String ACTION_DEL_LOGIN_OBSERVER = "action_del_login_observer";
         }
     }
 

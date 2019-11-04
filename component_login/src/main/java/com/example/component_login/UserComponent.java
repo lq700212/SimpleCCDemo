@@ -50,8 +50,37 @@ public class UserComponent implements IComponent {
                 }
                 context.startActivity(intent);
                 return true;
+            case ComponentConst.Component_login.Action.ACTION_ADD_LOGIN_OBSERVER:
+                return addLoginObserver(cc);
+            case ComponentConst.Component_login.Action.ACTION_DEL_LOGIN_OBSERVER:
+                return delLoginObserver(cc);
+            default:
+                CC.sendCCResult(cc.getCallId(), CCResult.errorUnsupportedActionName());
         }
 
+        return false;
+    }
+
+    private boolean addLoginObserver(CC cc) {
+        String dyComponentName = cc.getParamItem(ComponentConst.Component_login.KEY_OBSERVER_COMPONENT_NAME);
+        String dyActionName = cc.getParamItem(ComponentConst.Component_login.KEY_OBSERVER_ACTION_NAME);
+        if (!TextUtils.isEmpty(dyComponentName)) {
+            LoginUserManager.addObserver(dyComponentName, dyActionName);
+            CC.sendCCResult(cc.getCallId(), CCResult.success());
+        } else {
+            CC.sendCCResult(cc.getCallId(), CCResult.error("no componentName"));
+        }
+        return false;
+    }
+
+    private boolean delLoginObserver(CC cc) {
+        String dyComponentName = cc.getParamItem(ComponentConst.Component_login.KEY_OBSERVER_COMPONENT_NAME);
+        if (!TextUtils.isEmpty(dyComponentName)) {
+            LoginUserManager.delObserver(dyComponentName);
+            CC.sendCCResult(cc.getCallId(), CCResult.success());
+        } else {
+            CC.sendCCResult(cc.getCallId(), CCResult.error("no componentName"));
+        }
         return false;
     }
 }
