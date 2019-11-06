@@ -31,7 +31,6 @@ dependencies {
     addComponent 'component_b'
     addComponent 'component_login'
     addComponent 'component_order'
-    addComponent 'component_msg'
     addComponent 'component_view'
 
     testImplementation 'junit:junit:4.12'

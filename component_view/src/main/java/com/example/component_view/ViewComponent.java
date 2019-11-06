@@ -41,6 +41,8 @@ public class ViewComponent implements IComponent {
             case ComponentConst.Component_view.Action.CHANGEFRAGMENTCOLOR:
                 activity = cc.getParamItem("Activity");
                 activity.replaceFramentWithC();
+                Intent intent = new Intent(activity, MyService.class);
+                activity.startService(intent);
                 CC.sendCCResult(cc.getCallId(), CCResult.success());
                 break;
         }
