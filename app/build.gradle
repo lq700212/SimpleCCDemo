@@ -1,5 +1,5 @@
-ext.mainApp = true
-project.apply plugin: 'cc-register'
+//ext.mainApp = true
+apply from: rootProject.file('cc-settings-2.gradle')
 
 android {
     compileSdkVersion rootProject.ext.android["compileSdkVersion"]
