@@ -2,9 +2,9 @@ package com.example.component_view;
 
 import android.content.Context;
 import android.content.Intent;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
-import androidx.appcompat.app.AppCompatActivity;
 
 import com.billy.cc.core.component.CC;
 import com.billy.cc.core.component.CCResult;
