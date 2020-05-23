@@ -1,9 +1,10 @@
 package com.example.component_order;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.billy.cc.core.component.CC;
 import com.billy.cc.core.component.CCResult;
@@ -81,7 +82,7 @@ public class OrderComponent implements IComponent {
     private void startOrderListActivity(CC cc) {
         Context context = cc.getContext();
         Intent intent = new Intent(context, OrderListActivity.class);
-        if (!(context instanceof Activity)) {
+        if (!(context instanceof AppCompatActivity)) {
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         }
         context.startActivity(intent);

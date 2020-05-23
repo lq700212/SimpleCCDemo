@@ -1,5 +1,6 @@
 //ext.mainApp = true
 apply from: rootProject.file('cc-settings-2.gradle')
+apply plugin: 'com.didi.virtualapk.host'
 
 android {
     compileSdkVersion rootProject.ext.android["compileSdkVersion"]
@@ -21,19 +22,32 @@ android {
     }
 }
 
+configurations.all {
+    //循环一个个的依赖库
+    resolutionStrategy.eachDependency { DependencyResolveDetails details ->
+        //获取当前循环到的依赖库
+        def requested = details.requested
+        //如果这个依赖库群组的名字是com.android.support
+        if (requested.group == 'androidx.lifecycle') {
+            //且其名字不是以multidex开头的
+            if (!requested.name.startsWith("multidex")) {
+                //这里指定需要统一的依赖版本
+                details.useVersion '2.1.0'
+            }
+        }
+    }
+}
+
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation 'androidx.appcompat:appcompat:1.1.0'
-    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    implementation 'com.android.support:appcompat-v7:28.0.0'
+    implementation 'com.android.support:support-v4:28.0.0'
+    implementation 'com.didi.virtualapk:core:0.9.8'
 
     implementation project(':component_base')
-    addComponent 'component_a'
+//    addComponent 'component_a'
     addComponent 'component_b'
     addComponent 'component_login'
     addComponent 'component_order'
     addComponent 'component_view'
-
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 }

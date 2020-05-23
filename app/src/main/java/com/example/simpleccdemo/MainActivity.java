@@ -1,22 +1,24 @@
 package com.example.simpleccdemo;
 
 import android.os.Bundle;
+import android.os.Environment;
+import android.support.v4.app.Fragment;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
-
 import com.billy.cc.core.component.CC;
 import com.billy.cc.core.component.CCResult;
 import com.billy.cc.core.component.IComponentCallback;
+import com.didi.virtualapk.PluginManager;
 import com.example.component_base.ComponentConst;
 import com.example.component_base.Global;
 import com.example.component_base.UserBean;
 import com.example.component_base.interface_custom.IComponentAManager;
 import com.example.component_base.interface_custom.IComponentBManager;
+
+import java.io.File;
 
 public class MainActivity extends BaseActivity {
     private TextView textView;
@@ -173,13 +175,24 @@ public class MainActivity extends BaseActivity {
         bt_component_a.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                CC cc = CC.obtainBuilder(ComponentConst.Component_A.NAME)
-                        .setActionName("showComponentA")
-                        .build();
-                CCResult result = cc.call();
-                if (!result.isSuccess()) {
-                    Toast.makeText(MainActivity.this, "跳转失败,code = " + result.getCode() +
-                            ", description = " + result.getErrorMessage(), Toast.LENGTH_SHORT).show();
+                if (PluginManager.getInstance(MainActivity.this).getLoadedPlugin("com.example.plugin") == null) {
+                    String pluginPath = Environment.getExternalStorageDirectory().getAbsolutePath().concat("/download.apk");
+                    File plugin = new File(pluginPath);
+                    try {
+                        PluginManager.getInstance(MainActivity.this).loadPlugin(plugin);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                        Toast.makeText(MainActivity.this, "load插件失败", Toast.LENGTH_SHORT).show();
+                    }
+                } else {
+                    CC cc = CC.obtainBuilder(ComponentConst.Component_A.NAME)
+                            .setActionName("showComponentA")
+                            .build();
+                    CCResult result = cc.call();
+                    if (!result.isSuccess()) {
+                        Toast.makeText(MainActivity.this, "跳转失败,code = " + result.getCode() +
+                                ", description = " + result.getErrorMessage(), Toast.LENGTH_SHORT).show();
+                    }
                 }
             }
         });

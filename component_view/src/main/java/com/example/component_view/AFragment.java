@@ -1,20 +1,17 @@
 package com.example.component_view;
 
-import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-
 import com.billy.cc.core.component.CC;
 import com.billy.cc.core.component.CCResult;
 
-public class AFragment extends Fragment{
+public class AFragment extends Fragment {
     private TextView tv_frag_a;
     private View view;
 
@@ -42,7 +39,6 @@ public class AFragment extends Fragment{
         tv_frag_a.setGravity(Gravity.CENTER);
     }
 
-    @Nullable
     @Override
     public View getView() {
         return view;

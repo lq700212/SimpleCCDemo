@@ -1,9 +1,10 @@
 package com.example.component_view;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.view.View;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.billy.cc.core.component.CC;
 import com.billy.cc.core.component.CCResult;
@@ -64,7 +65,7 @@ public class ViewComponent implements IComponent {
                 break;
         }
 
-        if (!(context instanceof Activity)) {
+        if (!(context instanceof AppCompatActivity)) {
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         }
         context.startActivity(intent);

@@ -1,18 +1,16 @@
 package com.example.component_a;
 
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import com.billy.cc.core.component.CC;
 import com.billy.cc.core.component.CCResult;
 import com.example.component_base.ComponentConst;
 import com.example.component_base.UserBean;
-import com.example.component_base.interface_custom.IComponentAManager;
 import com.example.component_base.interface_custom.IComponentBManager;
 
 public class ActivityA extends AppCompatActivity {
