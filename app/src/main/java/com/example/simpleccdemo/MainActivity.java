@@ -1,8 +1,14 @@
 package com.example.simpleccdemo;
 
+import android.Manifest;
+import android.app.Activity;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.os.Environment;
+import android.support.annotation.NonNull;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
+import android.support.v4.content.ContextCompat;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -94,6 +100,21 @@ public class MainActivity extends BaseActivity {
         //开启登录状态监听
         startListenLoginState();
         //...
+        if(ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, 1);
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if(requestCode == 1) {
+            if(grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                Toast.makeText(this, "授权成功", Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(this, "授权失败", Toast.LENGTH_SHORT).show();
+            }
+        }
     }
 
     @Override
@@ -175,8 +196,8 @@ public class MainActivity extends BaseActivity {
         bt_component_a.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (PluginManager.getInstance(MainActivity.this).getLoadedPlugin("com.example.plugin") == null) {
-                    String pluginPath = Environment.getExternalStorageDirectory().getAbsolutePath().concat("/download.apk");
+                if (PluginManager.getInstance(MainActivity.this).getLoadedPlugin("com.example.component_a") == null) {
+                    String pluginPath = Environment.getExternalStorageDirectory().getAbsolutePath().concat("/component_a.apk");
                     File plugin = new File(pluginPath);
                     try {
                         PluginManager.getInstance(MainActivity.this).loadPlugin(plugin);
