@@ -1,6 +1,6 @@
-ext.mainApp = true
+//ext.mainApp = true
 apply from: rootProject.file('cc-settings-2.gradle')
-apply plugin: 'com.didi.virtualapk.plugin'
+//apply plugin: 'com.didi.virtualapk.plugin'
 
 android {
     compileSdkVersion rootProject.ext.android["compileSdkVersion"]
@@ -37,8 +37,8 @@ dependencies {
     implementation "com.android.support.constraint:constraint-layout:1.1.3"
 }
 
-virtualApk{
-    packageId = 0x7f
-    targetHost = '../app'   //宿主应用的app模块路径
-    applyHostMapping = true
-}
+//virtualApk{
+//    packageId = 0x77
+//    targetHost = '../app'   //宿主应用的app模块路径
+//    applyHostMapping = true
+//}

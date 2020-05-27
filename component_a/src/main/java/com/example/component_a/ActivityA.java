@@ -26,7 +26,7 @@ public class ActivityA extends AppCompatActivity {
         setContentView(R.layout.activity_a);
 
         initUI();
-        initData();
+//        initData();
     }
 
     private void initUI() {
@@ -39,9 +39,10 @@ public class ActivityA extends AppCompatActivity {
     private void initData() {
         ComponentAManager componentAManager = ComponentAManager.getInstance();
         UserBean userBean = componentAManager.get();
-        textView.setText("ComponentA:\nname:" + userBean.getName() + "\n"
-                + "age:" + userBean.getAge() + "\n"
-                + "weight:" + userBean.getWeight());
+//        textView.setText("测试测试测试ComponentA:\nname:" + userBean.getName() + "\n"
+//                + "age:" + userBean.getAge() + "\n"
+//                + "weight:" + userBean.getWeight());
+        textView.setText("测试测试测试ComponentA:\nname:");
 
         component_a_button.setOnClickListener(new View.OnClickListener() {
             @Override

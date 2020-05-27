@@ -2,7 +2,11 @@ package com.example.simpleccdemo;
 
 import android.Manifest;
 import android.app.Activity;
+import android.content.ComponentName;
+import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.support.annotation.NonNull;
@@ -10,6 +14,9 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
 import android.view.View;
+import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -25,6 +32,8 @@ import com.example.component_base.interface_custom.IComponentAManager;
 import com.example.component_base.interface_custom.IComponentBManager;
 
 import java.io.File;
+import java.lang.reflect.Field;
+import java.lang.reflect.Method;
 
 public class MainActivity extends BaseActivity {
     private TextView textView;
@@ -103,6 +112,8 @@ public class MainActivity extends BaseActivity {
         if(ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, 1);
         }
+
+        setStatusBarTranslucent(this, true);
     }
 
     @Override
@@ -206,13 +217,21 @@ public class MainActivity extends BaseActivity {
                         Toast.makeText(MainActivity.this, "load插件失败", Toast.LENGTH_SHORT).show();
                     }
                 } else {
-                    CC cc = CC.obtainBuilder(ComponentConst.Component_A.NAME)
-                            .setActionName("showComponentA")
-                            .build();
-                    CCResult result = cc.call();
-                    if (!result.isSuccess()) {
-                        Toast.makeText(MainActivity.this, "跳转失败,code = " + result.getCode() +
-                                ", description = " + result.getErrorMessage(), Toast.LENGTH_SHORT).show();
+//                    CC cc = CC.obtainBuilder(ComponentConst.Component_A.NAME)
+//                            .setActionName("showComponentA")
+//                            .build();
+//                    CCResult result = cc.call();
+//                    if (!result.isSuccess()) {
+//                        Toast.makeText(MainActivity.this, "跳转失败,code = " + result.getCode() +
+//                                ", description = " + result.getErrorMessage(), Toast.LENGTH_SHORT).show();
+//                    }
+                    //测试直接以virtualApk的形式打开界面
+                    try {
+                        Intent intent = new Intent();
+                        intent.setComponent(new ComponentName("com.example.component_a", "com.example.component_a.ActivityA"));
+                        startActivity(intent);
+                    } catch (Exception e) {
+                        e.printStackTrace();
                     }
                 }
             }
@@ -290,5 +309,43 @@ public class MainActivity extends BaseActivity {
                         .callAsyncCallbackOnMainThread(fragmentColorUpdateCallback);
             }
         });
+    }
+
+    // 设置状态栏透明与字体颜色
+    public static void setStatusBarTranslucent(Activity activity, boolean isLightStatusBar) {
+        if (activity == null) return;
+        Window window = activity.getWindow();
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT && Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
+            window.addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+        } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+            window.getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+                    | View.SYSTEM_UI_FLAG_LAYOUT_STABLE | View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
+            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+            window.setStatusBarColor(Color.TRANSPARENT);
+        }
+
+        if (isXiaomi()) {
+            setXiaomiStatusBar(window, isLightStatusBar);
+        }
+    }
+
+    // 是否是小米手机
+    public static boolean isXiaomi() {
+        return "Xiaomi".equals(Build.MANUFACTURER);
+    }
+
+    // 设置小米状态栏
+    public static void setXiaomiStatusBar(Window window, boolean isLightStatusBar) {
+        Class<? extends Window> clazz = window.getClass();
+        try {
+            Class<?> layoutParams = Class.forName("android.view.MiuiWindowManager$LayoutParams");
+            Field field = layoutParams.getField("EXTRA_FLAG_STATUS_BAR_DARK_MODE");
+            int darkModeFlag = field.getInt(layoutParams);
+            Method extraFlagField = clazz.getMethod("setExtraFlags", int.class, int.class);
+            extraFlagField.invoke(window, isLightStatusBar ? darkModeFlag : 0, darkModeFlag);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

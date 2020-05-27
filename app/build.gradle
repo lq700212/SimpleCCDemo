@@ -29,7 +29,7 @@ dependencies {
     implementation "com.android.support.constraint:constraint-layout:1.1.3"
 
     implementation project(':component_base')
-//    addComponent 'component_a'
+    addComponent 'component_a'
 //    addComponent 'component_b'
 //    addComponent 'component_login'
 //    addComponent 'component_order'

@@ -3,7 +3,9 @@
     package="com.example.component_a">
 
     <application>
-        <activity android:name=".ActivityA"></activity>
+        <activity
+            android:name=".ActivityA"
+            android:exported="true" />
     </application>
 
 </manifest>
