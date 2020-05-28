@@ -62,4 +62,12 @@ public class ComponentConst {
             String GETFRAGMENT = "Component_View_GetFragment";
         }
     }
+
+    public interface Dynamic_component {
+        String NAME = "Dynamic_component";
+
+        interface Action {
+            String OPEN_ACTIVITY = "open_activity";
+        }
+    }
 }
