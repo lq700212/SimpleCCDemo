@@ -1,6 +1,7 @@
 package com.example.simpleccdemo;
 
 import android.os.Bundle;
+import android.os.Environment;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -17,6 +18,7 @@ import com.example.component_base.Global;
 import com.example.component_base.UserBean;
 import com.example.component_base.interface_custom.IComponentAManager;
 import com.example.component_base.interface_custom.IComponentBManager;
+import com.tencent.tinker.lib.tinker.TinkerInstaller;
 
 public class MainActivity extends BaseActivity {
     private TextView textView;
@@ -26,6 +28,9 @@ public class MainActivity extends BaseActivity {
     private Button bt_component_b_content;
     private Button bt_login;
     private Button bt_order;
+    private Button bt_change_fragment;
+    private Button bt_change_fragment_color;
+    private Button bt_load_plugin;
 
     IComponentCallback printResultCallback = new IComponentCallback() {
         @Override
@@ -80,9 +85,6 @@ public class MainActivity extends BaseActivity {
         }
     };
 
-    private Button bt_change_fragment;
-    private Button bt_change_fragment_color;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -119,6 +121,7 @@ public class MainActivity extends BaseActivity {
         bt_order = (Button) findViewById(R.id.bt_order);
         bt_change_fragment = (Button) findViewById(R.id.bt_change_fragment);
         bt_change_fragment_color = (Button) findViewById(R.id.bt_change_fragment_color);
+        bt_load_plugin = (Button) findViewById(R.id.bt_load_plugin);
     }
 
     private void initData() {
@@ -254,6 +257,19 @@ public class MainActivity extends BaseActivity {
                         .setActionName(ComponentConst.Component_view.Action.OPENVIEWACTIVITY)
                         .build()
                         .callAsyncCallbackOnMainThread(fragmentColorUpdateCallback);
+            }
+        });
+
+        bt_load_plugin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // 加载补丁
+                try {
+                    TinkerInstaller.onReceiveUpgradePatch(getApplicationContext(),
+                            Environment.getExternalStorageDirectory().getAbsolutePath() + "/patch_signed_7zip.apk");
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
         });
     }
