@@ -7,7 +7,6 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import com.billy.cc.core.component.CC;
@@ -31,6 +30,7 @@ public class MainActivity extends BaseActivity {
     private Button bt_change_fragment;
     private Button bt_change_fragment_color;
     private Button bt_load_plugin;
+    private Button bt_dynamic_component;
 
     IComponentCallback printResultCallback = new IComponentCallback() {
         @Override
@@ -122,6 +122,7 @@ public class MainActivity extends BaseActivity {
         bt_change_fragment = (Button) findViewById(R.id.bt_change_fragment);
         bt_change_fragment_color = (Button) findViewById(R.id.bt_change_fragment_color);
         bt_load_plugin = (Button) findViewById(R.id.bt_load_plugin);
+        bt_dynamic_component = findViewById(R.id.bt_dynamic_component);
     }
 
     private void initData() {
@@ -266,9 +267,23 @@ public class MainActivity extends BaseActivity {
                 // 加载补丁
                 try {
                     TinkerInstaller.onReceiveUpgradePatch(getApplicationContext(),
-                            Environment.getExternalStorageDirectory().getAbsolutePath() + "/patch_signed_7zip.apk");
+                            Environment.getExternalStorageDirectory().getAbsolutePath() + "/patch_signed.apk");
                 } catch (Exception e) {
                     e.printStackTrace();
+                }
+            }
+        });
+
+        bt_dynamic_component.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                CC cc = CC.obtainBuilder(ComponentConst.Dynamic_component.NAME)
+                        .setActionName(ComponentConst.Dynamic_component.Action.OPEN_ACTIVITY)
+                        .build();
+                CCResult result = cc.call();
+                if (!result.isSuccess()) {
+                    Toast.makeText(MainActivity.this, "跳转失败,code = " + result.getCode() +
+                            ", description = " + result.getErrorMessage(), Toast.LENGTH_SHORT).show();
                 }
             }
         });
