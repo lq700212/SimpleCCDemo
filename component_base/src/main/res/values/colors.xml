@@ -3,4 +3,147 @@
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
+    <color name="x7base_background_tab_pressed">#6633B5E5</color>
+    <color name="x7base_black">#000000</color>
+    <color name="x7base_black_3">#333333</color>
+    <color name="x7base_black_6">#666666</color>
+    <color name="x7base_black_7">#777777</color>
+    <color name="x7base_black_9">#999999</color>
+    <color name="x7base_download_blue">#04d7fd</color>
+    <color name="x7base_download_green">#12cdb0</color>
+    <color name="x7base_download_orange">#ff9900</color>
+    <color name="x7base_gray_33">#333333</color>
+    <color name="x7base_gray_55">#555555</color>
+    <color name="x7base_gray_66">#666666</color>
+    <color name="x7base_gray_99">#999999</color>
+    <color name="x7base_gray_aa">#aaaaaa</color>
+    <color name="x7base_gray_cc">#cccccc</color>
+    <color name="x7base_gray_f3">#f3f3f3</color>
+    <color name="x7base_gray_f5">#f5f5f5</color>
+    <color name="x7base_gray_f9">#f9f9f9</color>
+    <color name="x7base_green_12cdb0">#12cdb0</color>
+    <color name="x7base_green_41d8a5">#41d8a5</color>
+    <color name="x7base_green_76bf27">#76bf27</color>
+    <color name="x7base_green_cff5ee">#cff5ee</color>
+    <color name="x7base_green_d5fff8">#d5fff8</color>
+    <color name="x7base_text_green">#12cdb0</color>
+    <color name="x7base_text_white">#ffffff</color>
+    <color name="x7base_transparent">#00000000</color>
+    <color name="x7base_white">#ffffff</color>
+    <dimen name="x7base_message_bottom_function_viewpager_height">220dp</dimen>
+    <dimen name="x7base_split_one_pixels">1px</dimen>
+    <string name="x7base_AccountBuyBackAct_paySucceed">支付成功</string>
+    <string name="x7base_AccountBuyBackAct_userAliPay_wait">正在唤起支付宝支付，请等待...</string>
+    <string name="x7base_AccountBuyBackAct_userUnionPay_wait">正在唤起银联支付，请等待...</string>
+    <string name="x7base_AccountBuyBackAct_userWeChat_wait">正在唤起微信支付，请等待...</string>
+    <string name="x7base_BaseActivity_hint1">请允许微信支付插件的写入安装权限005</string>
+    <string name="x7base_BaseActivity_hintContent">小7手游需要<font color="#12cdb0">(存储)</font>权限，方能正常进行游戏下载哦</string>
+    <string name="x7base_BaseActivity_hintTitle">小7温馨提示</string>
+    <string name="x7base_CheckUpdateUtils_noNetWork">亲，当前处于无网络状态耶</string>
+    <string name="x7base_CheckUpdateUtils_noNetWork_title">亲,当前网络处于非WIFI状态,确定下载吗?</string>
+    <string name="x7base_H5GameReadyPayActivity_payCancel">支付取消</string>
+    <string name="x7base_H5GameReadyPayActivity_payFailure">支付失败</string>
+    <string name="x7base_H5PayCouponActivity_payError">支付异常：</string>
+    <string name="x7base_HelpFragment_alreadyLogin_edit" translatable="false">编辑</string>
+    <string name="x7base_IM_xml_saySomething">和大家说点什么吧</string>
+    <string name="x7base_JsInterface_hint10">亲，购买游戏请先登录哦</string>
+    <string name="x7base_JsInterface_hint8">正在查询余额，请稍等...</string>
+    <string name="x7base_MessageCenterActivity1_cancel">取消</string>
+    <string name="x7base_PhoneInfo_bluetooth">设备不存在蓝牙</string>
+    <string name="x7base_UploadUtil_hint1">上传中：</string>
+    <string name="x7base_UserCenterGameFrag_relaxation">休闲</string>
+    <string name="x7base_UserLoginActivity_networkError">网络异常，请重试!</string>
+    <string name="x7base_UserLoginActivity_networkError1">网络异常，请重试1!</string>
+    <string name="x7base_UserLoginActivity_networkError2">网络异常，请重试2!</string>
+    <string name="x7base_UserLoginActivity_networkError3">网络异常，请重试3!</string>
+    <string name="x7base_UserLoginActivity_networkError4">亲，网络不给力，请重试</string>
+    <string name="x7base_UsernameRegisterActivity_hint3">获取sessionId失败,请重新验证</string>
+    <string name="x7base_X7InputPanel_inputContent">请输入聊天内容</string>
+    <string name="x7base_X7InputPanel_sendError">发送异常，请重试</string>
+    <string name="x7base_add_setting_register_return_xml">这一过程来添加设置进去的,当为设置一个的时候，就在这个中注册了一个回调</string>
+    <string name="x7base_alipay_erro">银联支付异常：</string>
+    <string name="x7base_all_emoji">全部</string>
+    <string name="x7base_app_name">component_base</string>
+    <string name="x7base_appkey" translatable="false">P67IjMMtHkrWYWM2972jZqowIDkoFTI0gFMYrWTfeDHgVtDJaYXoZfj1wpPD4K_s_udF40+spePCA1TtngyLB2J3Fq5Ew6f0CwEMefkvzcBLJULzMNj61la2lFBVCqjsANdHTQRp-i6H2AtjPGACLQVA8ru9afDc5jInGd-nXfRAsv2U3326h-_WFBsgDfXagMOHMBVbRqH6a2SRExRoepmEI8-juyzP42QopmmA9heH96n7btz1jywGZmP5_VH9P5uh8T1Ex7smsg12DN5OwUrAkp7UJ5nXeO-adbuCqEDpaFXB9aVko6W3tb5ml5tEoyL7Ri2LAn8LPkUGIRlGzrcLFztIzp-WmgNWrANazqH2d4auQL_XVx09Z4E2fEjyEPKoVoGyFu_V454dmxM6sR0Y-pCANZZV6B</string>
+    <string name="x7base_cancel">取消</string>
+    <string name="x7base_download_WeChat_latest">亲，请先下载最新的微信客户端哦</string>
+    <string name="x7base_erro6">异常6</string>
+    <string name="x7base_erro62">异常62：</string>
+    <string name="x7base_erro7">异常7</string>
+    <string name="x7base_erro8">异常8</string>
+    <string name="x7base_exchange_xml">兑换</string>
+    <string name="x7base_gain_certify_code_fail">获取验证码失败w</string>
+    <string name="x7base_gain_certify_code_fail2">获取验证码失败</string>
+    <string name="x7base_getPermission_exception">"&lt;font color='#12cdb0'>【存储权限】&lt;/font>"与"&lt;font color='#12cdb0'>【获取设备信息权限】&lt;/font>"为下载游戏必须的权限，需要您授权后才能正常使用小7APP"</string>
+    <string name="x7base_getPermission_exception_vest">"&lt;font color='#12cdb0'>【存储权限】&lt;/font>"与"&lt;font color='#12cdb0'>【获取设备信息权限】&lt;/font>"为正常游戏必须的权限，请继续完成授权哦"</string>
+    <string name="x7base_http_uploading_failure">上传图片失败</string>
+    <string name="x7base_im_lateast">最近使用</string>
+    <string name="x7base_im_x7_MyImgsActivity2_hint2">完成</string>
+    <string name="x7base_install_payment_plug">请先安装支付插件</string>
+    <string name="x7base_jpush" translatable="false">JPush</string>
+    <string name="x7base_link_overtime">链接超时：</string>
+    <string name="x7base_load_fail013">亲，请求加载失败哦013</string>
+    <string name="x7base_need_credit_xml">所需积分:</string>
+    <string name="x7base_network_erro_msg3">亲，网络异常，请重试</string>
+    <string name="x7base_no_read_write_document_power">没有读写存储文件的权限</string>
+    <string name="x7base_ordinary_comment">点评</string>
+    <string name="x7base_ordinary_continue">继续</string>
+    <string name="x7base_ordinary_downLoad">下载</string>
+    <string name="x7base_ordinary_install">安装</string>
+    <string name="x7base_ordinary_open">打开</string>
+    <string name="x7base_ordinary_retry">重试</string>
+    <string name="x7base_ordinary_start">开始</string>
+    <string name="x7base_ordinary_update">更新</string>
+    <string name="x7base_ordinary_wait">等待</string>
+    <string name="x7base_patient_not_repeatedly_click">亲,请不要重复点击按钮,请耐心等待</string>
+    <string name="x7base_pay_data_explain_erro">支付数据解析异常</string>
+    <string name="x7base_pay_fail">支付失败:</string>
+    <string name="x7base_pay_fail_status_code">支付失败：状态码</string>
+    <string name="x7base_pay_fail_wechat_uninstall">支付失败:微信未安装或版本低</string>
+    <string name="x7base_pay_write_install">请允许微信支付插件的写入和安装权限01</string>
+    <string name="x7base_phone_number_null">手机号码为空哦</string>
+    <string name="x7base_remain_credit_xml">剩余积分:</string>
+    <string name="x7base_remain_exchenge_xml">剩余可兑换</string>
+    <string name="x7base_remain_quantity">剩余数量:</string>
+    <string name="x7base_request_failed_to_load">亲，请求加载失败哦</string>
+    <string name="x7base_return_data_null01">后台返回数据为空01</string>
+    <string name="x7base_return_data_null03">后台返回数据为空03</string>
+    <string name="x7base_select_info_fail">查询信息失败：mid为空</string>
+    <string name="x7base_stop_compensate_gift_xml">停运补偿礼包</string>
+    <string name="x7base_sure">确定</string>
+    <string name="x7base_time_xml">次</string>
+    <string name="x7base_unknow_size">未知大小</string>
+    <string name="x7base_useful_life_xml">有效期</string>
+    <string name="x7base_xml_discount">折</string>
+    <string name="x7base_yunXin_common_uploading">下载中</string>
+    <declare-styleable name="x7base_HorizontalDownloadProgressBar">
+
+        <attr name="progress_text_size" format="dimension" />
+
+        <attr name="progress_text_color" format="color|integer" />
+
+        <attr name="progress_min_height" format="dimension" />
+
+        <attr name="progress_min_width" format="dimension" />
+
+        <attr name="progress_bar_color" format="color|integer" />
+    </declare-styleable>
+    <declare-styleable name="x7base_TabSlidingIndicator">
+        <attr name="pstsIndicatorColor" format="color" />
+        <attr name="pstsUnderlineColor" format="color" />
+        <attr name="pstsDividerColor" format="color" />
+        <attr name="pstsIndicatorHeight" format="dimension" />
+        <attr name="pstsUnderlineHeight" format="dimension" />
+        <attr name="pstsDividerPadding" format="dimension" />
+        <attr name="pstsTabPaddingLeftRight" format="dimension" />
+        <attr name="pstsScrollOffset" format="dimension" />
+        <attr name="pstsTabBackground" format="reference" />
+        <attr name="pstsShouldExpand" format="boolean" />
+        <attr name="pstsTextAllCaps" format="boolean" />
+        <attr name="pstsLineMove" format="dimension" />
+    </declare-styleable>
+    <declare-styleable name="x7base_TextViewBorder">
+        <attr name="styleIndex" format="integer" />
+        <attr name="borderColor" format="color" />
+    </declare-styleable>
 </resources>

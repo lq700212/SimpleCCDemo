@@ -12,4 +12,16 @@
         <item name="android:windowIsTranslucent">true</item>
     </style>
 
+    <style name="radio_button_style">
+        <item name="android:layout_width">0dip</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_height">50dp</item>
+        <item name="android:button">@null</item>
+        <item name="android:textColor">@drawable/wordcolor_main_radio_bg</item>
+        <!-- <item name="android:drawablePadding">3dip</item>-->
+        <item name="android:textSize">11sp</item>
+        <item name="android:paddingTop">5dip</item>
+        <item name="android:background">@color/x7base_white</item>
+    </style>
+
 </resources>

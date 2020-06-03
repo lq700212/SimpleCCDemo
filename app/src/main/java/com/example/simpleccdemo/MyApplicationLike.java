@@ -37,6 +37,7 @@ public class MyApplicationLike extends DefaultApplicationLike {
         CC.enableDebug(false);
         //跨APP间组件调用时开启
         CC.enableRemoteCC(true);
+        CC.init(getApplication());
 
         // 分包需要的东西
         MultiDex.install(base);

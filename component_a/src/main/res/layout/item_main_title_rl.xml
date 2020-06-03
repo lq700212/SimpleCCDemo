@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/root_rl"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/x7base_white">
+
+    <!--透明状态栏下，给出的距离顶部的空间-->
+    <TextView
+        android:id="@+id/title_topSpace_tv"
+        android:layout_width="match_parent"
+        android:layout_height="15dp"
+        android:visibility="gone" />
+
+    <!--以下相对布局，是之前的title布局2018.7.12之前-->
+    <RelativeLayout
+        android:id="@+id/rl_title_base"
+        android:layout_width="match_parent"
+        android:layout_height="47dp"
+        android:layout_below="@+id/title_topSpace_tv">
+
+        <ImageView
+            android:id="@+id/imageview_title_left"
+            android:layout_width="40dip"
+            android:layout_height="40dip"
+            android:layout_centerVertical="true"
+            android:clickable="true"
+            android:paddingLeft="10dip"
+            android:paddingRight="6dip"
+            android:src="@drawable/x7base_title_back_green_iv"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/title_left_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/imageview_title_left"
+            android:clickable="true"
+            android:paddingBottom="5dip"
+            android:paddingLeft="20dip"
+            android:paddingTop="5dip"
+            android:text="@string/x7_xml_close"
+            android:textColor="@color/x7base_text_green"
+            android:textSize="16sp"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/center_title"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_centerInParent="true"
+            android:gravity="center_vertical"
+            android:text=""
+            android:textColor="@color/black_31"
+            android:textSize="20dp" />
+
+        <ImageView
+            android:id="@+id/imageview_title_right"
+            android:layout_width="35dip"
+            android:layout_height="35dip"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginBottom="2dp"
+            android:clickable="true"
+            android:paddingLeft="6dip"
+            android:paddingRight="10dip"
+            android:paddingTop="2dip"
+            android:src="@drawable/x7base_icon_share"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/title_right_forRule_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerInParent="true"
+            android:layout_marginRight="5dp"
+            android:clickable="true"
+            android:gravity="center"
+            android:padding="8dp"
+            android:text="@string/x7_xml_rule"
+            android:drawableRight="@drawable/row_right_month_card"
+            android:drawablePadding="3dp"
+            android:textColor="@color/black_31"
+            android:textSize="15dp"
+            android:visibility="gone"/>
+
+        <!--钱包记录-隐藏记录按钮-->
+        <TextView
+            android:id="@+id/hide_deal_record"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerInParent="true"
+            android:layout_marginRight="20dp"
+            android:clickable="true"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:text=""
+            android:drawablePadding="3dp"
+            android:textColor="@color/gray_9f"
+            android:textSize="15dp" />
+
+        <TextView
+            android:id="@+id/center_right"
+            android:layout_width="wrap_content"
+            android:layout_height="25dip"
+            android:layout_alignParentRight="true"
+            android:layout_centerInParent="true"
+            android:layout_marginRight="5dp"
+            android:clickable="true"
+            android:gravity="center"
+            android:paddingLeft="10dip"
+            android:paddingRight="10dip"
+            android:text="@string/x7_xml_complete"
+            android:textColor="@color/x7base_text_green"
+            android:textSize="13sp"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/center_right_red_count_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignRight="@id/center_right"
+            android:layout_alignTop="@id/center_right"
+            android:background="@drawable/red_yuan_bj"
+            android:gravity="center"
+            android:paddingBottom="1dip"
+            android:paddingLeft="4dip"
+            android:paddingRight="4dip"
+            android:textColor="@color/x7base_text_white"
+            android:textSize="8sp"
+            android:visibility="gone" />
+
+
+        <ImageView
+            android:id="@+id/imageview_title_right_bookgift"
+            android:layout_width="40dip"
+            android:layout_height="40dip"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:clickable="true"
+            android:paddingBottom="5dip"
+            android:paddingLeft="8dip"
+            android:paddingRight="10dip"
+            android:paddingTop="5dip"
+            android:src="@drawable/logo_bookgame_gift"
+            android:visibility="gone" />
+    </RelativeLayout>
+</RelativeLayout>

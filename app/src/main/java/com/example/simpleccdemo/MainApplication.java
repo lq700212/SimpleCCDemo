@@ -19,10 +19,4 @@ public class MainApplication extends TinkerApplication {
                 // have a binary dependency on your ApplicationLifeCycle class.
                 "com.example.simpleccdemo.MyApplicationLike");
     }
-
-    @Override
-    public void onCreate() {
-        super.onCreate();
-        CC.init(this);
-    }
 }

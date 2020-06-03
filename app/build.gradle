@@ -1,6 +1,5 @@
 ext.mainApp = true
 apply from: rootProject.file('cc-settings-2.gradle')
-apply plugin: 'com.tencent.tinker.patch'
 
 android {
     compileSdkVersion rootProject.ext.android["compileSdkVersion"]
@@ -87,7 +86,7 @@ dependencies {
 }
 
 def bakPath = file("${buildDir}/bakApk/")
-def apkName = "app-debug-0528-20-04-29"
+def apkName = "app-debug-0603-23-38-48"
 
 /**
  * you can use assembleRelease to build you base apk

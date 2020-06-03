@@ -1,6 +1,122 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <color name="colorPrimary">#008577</color>
-    <color name="colorPrimaryDark">#00574B</color>
-    <color name="colorAccent">#D81B60</color>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- <color name="gray_ee">#f1f1f1</color> -->
+    <color name="gray_ee">#eeeeee</color>
+    <color name="line_e5e5e5">#e5e5e5</color>
+    <color name="gray_f5f5f5">#f5f5f5</color>
+    <color name="line_f5f5f5">#f5f5f5</color>
+    <color name="line_f6f6f6">#f6f6f6</color>
+    <color name="f9f9f9">#f9f9f9</color>
+    <color name="background_gray">#f2f2f2</color>
+    <color name="text_light_gray">#666666</color>
+    <color name="green_compensate">#56d8c4</color>
+    <color name="text_light_gray_dedede">#dedede</color>
+    <color name="line_shen">#cccccc</color>
+    <color name="black_0">#000000</color>
+    <color name="black_4">#444444</color>
+    <color name="black_5">#555555</color>
+    <color name="black_7">#777777</color>
+    <color name="black_8">#888888</color>
+    <color name="black_989898">#989898</color>
+    <color name="black_2e2e2e">#2e2e2e</color>
+    <color name="orange_ff9a00">#ff9a00</color>
+    <color name="orange_ff9900">#ff9900</color>
+    <color name="black_31">#313131</color>
+    <color name="black_34">#343434</color>
+    <color name="black_94">#949494</color>
+    <color name="black_67">#676767</color>
+    <color name="black_35">#353535</color>
+    <color name="black_6f">#6f6f6f</color>
+    <color name="black_2c">#2c2c2c</color>
+    <color name="black_c2c2c2">#c2c2c2</color>
+    <color name="gray_98">#989898</color>
+    <color name="gray_99">#999999</color>
+    <color name="gray_b3">#b3b3b3</color>
+    <color name="background_gray_1">#fafafa</color>
+
+    <color name="maihao_tishi_text">#dedede</color>
+
+    <color name="background_green">#12cdb0</color>
+    <color name="background_deep_green">#0abba0</color>
+    <color name="theme_color">#12cdb0</color>
+    <color name="dialog_color">#00000000</color>
+    <color name="light_green">#7AC51F</color>
+
+    <!-- 金色字体 -->
+    <color name="text_golden">#fff701</color>
+    <!-- 红色字体 -->
+    <color name="text_red">#fb3c5d</color>
+    <color name="text_ccccccc">#cccccc</color>
+    <!-- 合集的颜色 -->
+    <color name="collect_color">#2ed0dd</color>
+
+    <color name="hei">#333333</color>
+
+    <color name="orange">#fe9900</color>
+
+    <color name="noget_stop">#3e4e4c</color>
+
+
+    <!-- 网游详情界面下载进度条 -->
+    <color name="colorPrimary">#ffffff</color>
+    <color name="colorPrimaryDark">#666666</color>
+    <color name="colorAccent">#12cdb0</color>
+
+    <color name="reply_name">#0c7cb0</color>
+    <color name="xueRed">#e42041</color>
+
+
+    <!-- session -->
+    <color name="color_message_default_bg">#e9ecf0</color>
+    <color name="input_panel_text_color_757572">#757572</color>
+    <color name="color_gray_cbd0d8">#cbd0d8</color>
+    <color name="help_color">#ff999999</color>
+
+    <color name="begin_dialog_back">#8c000000</color>
+    <color name="gray_f0">#f0f0f0</color>
+    <color name="gray_ba">#bababa</color>
+    <color name="gray_83">#838383</color>
+    <color name="gray_a3">#a3a3a3</color>
+    <color name="gray_aaaaaaa">#aaaaaa</color>
+
+    <color name="white_f7fef4">#f7fef4</color>
+    <color name="white_fcffff">#fcffff</color>
+    <color name="white_fffeff">#fffeff</color>
+
+    <color name="green_7ac71f">#7ac71f</color>
+    <color name="green_00d9a3">#00d9a3</color>
+    <color name="green_12ceb0">#12ceb0</color>
+    <color name="green_0ecaaa">#0ecaaa</color>
+    <color name="yellow_fffd00">#fffd00</color>
+    <color name="gray_8f">#8f8f8f</color>
+    <color name="black_2e">#2e2e2e</color>
+    <color name="orange_f3a309">#f3a309</color>
+    <color name="black_65">#656565</color>
+    <color name="gray_97">#979797</color>
+    <color name="gray_f8">#f8f8f8</color>
+    <color name="gray_9f">#9f9f9f</color>
+    <color name="black_a8">#a8a8a8</color>
+    <color name="orange_ff9700">#ff9700</color>
+    <!-- hao 的颜色值添加处-->
+    <color name="gray_d7">#d7d7d7</color>
+    <color name="gray_ed">#ededed</color>
+    <color name="gray_96">#969696</color>
+    <color name="toLookAll">#ffffff</color>
+    <!-- hao 的颜色值添加处-->
+    <!-- xie 的颜色值添加处-->
+    <color name="green_d7fff9">#d7fff9</color>
+    <color name="gray_cfcfcf">#cfcfcf</color>
+    <color name="golden_fafe04">#fafe04</color>
+    <color name="gray_fefefe">#fefefe</color>
+    <color name="gray_f2f2f2">#f2f2f2</color>
+    <color name="gray_f9f9f9">#f9f9f9</color>
+    <color name="red_ff0055">#ff0055</color>
+    <color name="blue_00aeff">#00aeff</color>
+    <color name="blue_3364a3">#3364a3</color>
+
+    <!-- 按钮颜色值添加处-->
+    <color name="orange_ff8400">#ff8400</color>
+    <color name="green_68B603">#68B603</color>
+    <color name="blue_378ff8">#37BFF8</color>
+
 </resources>
